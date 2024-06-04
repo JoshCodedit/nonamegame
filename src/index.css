@@ -1,13 +1,165 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.background {
+  max-width: 430px;
+  height: 932px;
+  /* background-image: url("/public/images/background.jpg"); */
+  background-color:#b679aa;
+  background-size: cover;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative; /* Added to position the care-bar within it */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* Ensure content is pushed to the bottom */
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.main-menu{
+  color: black;
+  position: relative;
+  bottom: 50%;
+  text-align: center;
+  font-family: "Titan One";
+  color: rgb(255, 255, 255);
+}
+
+.name-input{
+  width: 300px;
+  height: 35px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.submit-button{
+  width: 310px;
+  height: 40px;
+  font-weight: bold;
+  font-size: 17px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.reset-pet{
+  background-color: white;
+  font-family: "poppins";
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  bottom: 250px;
+  width: 100px;
+  height: 50px;
+  border-radius: 5px;
+  border: none;
+  margin-left: auto;
+  margin-right: 30px;
+}
+
+.thought-bubbles-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.thinking-play,
+.thinking-food,
+.dirty {
+  position: absolute;
+}
+
+.thinking-food {
+  width: 200px;
+  bottom: 65%;
+  left: 49%;
+}
+
+.thinking-play {
+  width: 200px; /* Adjust size as needed */
+  bottom: 65%;
+  left: 49%;
+}
+
+.dirty {
+  width: 280px;
+  bottom: 65%;
+  left: 17%;
+}
+
+.pet{
+  width: 100%;
+  position: relative;
+  bottom: 12%;
+
+}
+
+/* PetNeeds.css */
+.care-bar {
+  background-color:#8f3f7f;
+  height: 130px;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  width: 100%;
+  box-sizing: border-box; /* Include padding in the element's total width and height */
+
+}
+
+.feed-button, .play-button, .clean-button{
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.feed, .clean, .play{
+  width: 80px;
+  height: 80px;
+}
+
+/* src/components/ProgressBar.css */
+.progress-bar {
+  width: 80px;
+  background-color: #ddd;
+  border-radius: 5px;
+  overflow: hidden;
+  height: 20px;
+  margin-bottom: 10px;
+}
+
+.progress-bars{
+  background-color:#8f3f7f;
+  display: flex;
+  padding-left: 20px;
+  padding-right: 20px;
+  justify-content: space-between;
+}
+
+.progress-bar-inner {
+  height: 100%;
+  background-color: #4caf50;
+  transition: width 0.1s linear;
+}
+
+.card-container{  
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 13px;
+}
+
+.cards{
+  width: 100px;
+  height: 170px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.game{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px;
+  
 }
