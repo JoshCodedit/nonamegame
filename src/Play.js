@@ -24,8 +24,20 @@ export default function Play() {
     const [matchedCards, setMatchedCards] = useState([]);
     const [flippedCards, setFlippedCards] = useState([]);
     const [gameWon, setGameWon] = useState(false);
+    const [isFullScreen, setIsFullScreen] = useState(false);
     const timeout = useRef(null);
-    const [moves, setMoves] = useState({ count: 1 })
+    const [moves, setMoves] = useState({ count: 1 });
+
+    useEffect(() => {
+        // Update isFullScreen state based on full screen status
+        const handleFullScreenChange = () => {
+            setIsFullScreen(!!document.fullscreenElement);
+        };
+        document.addEventListener('fullscreenchange', handleFullScreenChange);
+        return () => {
+            document.removeEventListener('fullscreenchange', handleFullScreenChange);
+        };
+    }, []);
 
     useEffect(() => {
         if (flippedCards.length === 2) {
@@ -77,7 +89,6 @@ export default function Play() {
         }
     }
 
-
     const show = !gameWon ? { display: '' } : { display: 'none' };
 
     const theCards = cards.map(card => (
@@ -89,6 +100,33 @@ export default function Play() {
             show={show}
         />
     ));
+
+    const enterFullScreen = () => {
+        const element = document.documentElement;
+        if (element.requestFullscreen) {
+            element.requestFullscreen();
+        } else if (element.mozRequestFullScreen) {
+            element.mozRequestFullScreen();
+        } else if (element.webkitRequestFullscreen) {
+            element.webkitRequestFullscreen();
+        } else if (element.msRequestFullscreen) {
+            element.msRequestFullscreen();
+        }
+        setIsFullScreen(true);
+    };
+
+    const exitFullScreen = () => {
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        } else if (document.mozCancelFullScreen) {
+            document.mozCancelFullScreen();
+        } else if (document.webkitExitFullscreen) {
+            document.webkitExitFullscreen();
+        } else if (document.msExitFullscreen) {
+            document.msExitFullscreen();
+        }
+        setIsFullScreen(false);
+    };
 
     return (
         <div className="game">
@@ -104,8 +142,12 @@ export default function Play() {
               <button className='back-button' onClick={() => navigate('/')}>Go Back</button>
             </div>
           )}
+          {isFullScreen && (
+            <button className="exit-fullscreen" onClick={exitFullScreen}>Exit Full Screen</button>
+          )}
+          {!isFullScreen && (
+            <button className="enter-fullscreen" onClick={enterFullScreen}>Enter Full Screen</button>
+          )}
         </div>
       );
-    };
-    
-
+}
