@@ -1,27 +1,36 @@
 .background {
   max-width: 430px;
-  height: 932px;
+  height: 900px;
   /* background-image: url("/public/images/background.jpg"); */
-  background-color:#b679aa;
+  background-color: #b679aa;
   background-size: cover;
   margin-left: auto;
   margin-right: auto;
-  position: relative; /* Added to position the care-bar within it */
+  margin-top: 20px;
+  position: relative;
+  /* Added to position the care-bar within it */
   display: flex;
   flex-direction: column;
-  justify-content: flex-end; /* Ensure content is pushed to the bottom */
+  justify-content: flex-end;
+  /* Ensure content is pushed to the bottom */
 }
 
-.main-menu{
+body {
+  margin: 0;
+}
+
+.main-menu {
   color: black;
   position: relative;
   bottom: 50%;
   text-align: center;
-  font-family: "Titan One";
+  font-family: "poppins";
   color: rgb(255, 255, 255);
+  position: relative;
+  bottom: 400px;
 }
 
-.name-input{
+.name-input {
   width: 300px;
   height: 35px;
   text-align: center;
@@ -30,7 +39,7 @@
   margin-bottom: 15px;
 }
 
-.submit-button{
+.submit-button {
   width: 310px;
   height: 40px;
   font-weight: bold;
@@ -39,7 +48,7 @@
   cursor: pointer;
 }
 
-.reset-pet{
+.reset-pet {
   background-color: white;
   font-family: "poppins";
   font-weight: bold;
@@ -50,8 +59,7 @@
   height: 50px;
   border-radius: 5px;
   border: none;
-  margin-left: auto;
-  margin-right: 30px;
+  margin-left: 20px;
 }
 
 .thought-bubbles-container {
@@ -75,7 +83,8 @@
 }
 
 .thinking-play {
-  width: 200px; /* Adjust size as needed */
+  width: 200px;
+  /* Adjust size as needed */
   bottom: 65%;
   left: 49%;
 }
@@ -86,7 +95,7 @@
   left: 17%;
 }
 
-.pet{
+.pet {
   width: 100%;
   position: relative;
   bottom: 12%;
@@ -95,23 +104,28 @@
 
 /* PetNeeds.css */
 .care-bar {
-  background-color:#8f3f7f;
+  background-color: #8f3f7f;
   height: 130px;
   display: flex;
   justify-content: space-between;
   padding: 20px;
   width: 100%;
-  box-sizing: border-box; /* Include padding in the element's total width and height */
+  box-sizing: border-box;
+  /* Include padding in the element's total width and height */
 
 }
 
-.feed-button, .play-button, .clean-button{
+.feed-button,
+.play-button,
+.clean-button {
   background: none;
   border: none;
   cursor: pointer;
 }
 
-.feed, .clean, .play{
+.feed,
+.clean,
+.play {
   width: 80px;
   height: 80px;
 }
@@ -126,8 +140,8 @@
   margin-bottom: 10px;
 }
 
-.progress-bars{
-  background-color:#8f3f7f;
+.progress-bars {
+  background-color: #8f3f7f;
   display: flex;
   padding-left: 20px;
   padding-right: 20px;
@@ -140,26 +154,70 @@
   transition: width 0.1s linear;
 }
 
-.card-container{  
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(4, 1fr);
-    gap: 13px;
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: 13px;
+  position: relative;
+  bottom: 100px;
 }
 
-.cards{
+.cards {
   width: 100px;
   height: 170px;
   background-color: white;
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 7px;
+  cursor: pointer;
 }
 
-.game{
+.game {
   display: flex;
   justify-content: space-around;
   align-items: center;
   padding: 20px;
-  
+
+}
+
+.game-won {
+  background-color: white;
+  font-family: "poppins";
+  font-weight: bold;
+  position: relative;
+  bottom: 500px;
+  right: 29px;
+  padding: 20px;
+  text-align: center;
+}
+
+.score {
+  color: rgb(90, 90, 90);
+}
+
+.back-button{
+  margin-top: 5px;
+  padding: 10px;
+  width: 90px;
+  cursor: pointer;
+}
+
+@media (max-width: 431px) {
+  .background {
+    height: 931px;
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 399px) {
+  .background {
+    height: 844px;
+    margin-top: 0;
+  }
+
+  .reset-pet {
+    bottom: 220px;
+  }
 }

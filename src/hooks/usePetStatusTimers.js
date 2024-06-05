@@ -5,13 +5,13 @@ const usePetStatusTimers = (setStatus) => {
   const dirtyTimerRef = useRef();
   const boredTimerRef = useRef();
 
-  const [hungryProgress, setHungryProgress] = useState(50);
+  const [hungryProgress, setHungryProgress] = useState(100);
   const [dirtyProgress, setDirtyProgress] = useState(100);
   const [boredProgress, setBoredProgress] = useState(100);
 
-  const HUNGRY_INTERVAL = 110000;
-  const DIRTY_INTERVAL = 300000;
-  const BORED_INTERVAL = 80500;
+  const HUNGRY_INTERVAL = 70000;
+  const DIRTY_INTERVAL = 280000;
+  const BORED_INTERVAL = 80700;
 
   useEffect(() => {
     const setHungry = () => {

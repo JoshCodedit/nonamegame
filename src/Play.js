@@ -1,7 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react';
 import CardComponent from './CardComponent';
+import { useNavigate } from 'react-router-dom';
 
 export default function Play() {
+    const navigate = useNavigate();
     const cardImages = [
         { value: 1, image: './images/chicken-leg.png', isFlipped: false, id: 1 },
         { value: 2, image: './images/bath.png', isFlipped: false, id: 2 },
@@ -23,6 +25,7 @@ export default function Play() {
     const [flippedCards, setFlippedCards] = useState([]);
     const [gameWon, setGameWon] = useState(false);
     const timeout = useRef(null);
+    const [moves, setMoves] = useState({ count: 1 })
 
     useEffect(() => {
         if (flippedCards.length === 2) {
@@ -68,9 +71,12 @@ export default function Play() {
                     )
                 );
                 setFlippedCards(prev => [...prev, cardIndex]);
+                setMoves(prev => ({ ...prev, count: prev.count + 1 }));
+                console.log(moves)
             }
         }
     }
+
 
     const show = !gameWon ? { display: '' } : { display: 'none' };
 
@@ -86,10 +92,20 @@ export default function Play() {
 
     return (
         <div className="game">
-            <div className="card-container">
-                {theCards}
+          <div className="card-container">
+            {theCards}
+          </div>
+          {gameWon && (
+            <div className="game-won">
+              You've matched all the cards!
+              <br/>
+              <span className='score'>Your Score:</span>
+              <br/>{moves.count}<br/>
+              <button className='back-button' onClick={() => navigate('/')}>Go Back</button>
             </div>
-            {gameWon && <div className="game-won">Congratulations! You've matched all the cards!</div>}
+          )}
         </div>
-    );
-}
+      );
+    };
+    
+
