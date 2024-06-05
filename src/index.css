@@ -217,6 +217,11 @@ body {
     margin-top: 0;
   }
 
+  .card-container {
+    bottom: 35px;
+  }
+
+    
   .reset-pet {
     bottom: 220px;
   }
@@ -226,6 +231,9 @@ body {
   .background {
     height: 800px;
     margin-top: 0;
+  }
+  .card-container {
+    bottom: 10px;
   }
 
   .reset-pet {
