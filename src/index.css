@@ -221,3 +221,14 @@ body {
     bottom: 220px;
   }
 }
+
+@media (max-width: 361px) {
+  .background {
+    height: 800px;
+    margin-top: 0;
+  }
+
+  .reset-pet {
+    bottom: 180px;
+  }
+}
