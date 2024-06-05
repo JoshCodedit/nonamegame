@@ -145,9 +145,7 @@ export default function Play() {
           {isFullScreen && (
             <button className="exit-fullscreen" onClick={exitFullScreen}>Exit Full Screen</button>
           )}
-          {!isFullScreen && (
-            <button className="enter-fullscreen" onClick={enterFullScreen}>Enter Full Screen</button>
-          )}
+          
         </div>
       );
 }

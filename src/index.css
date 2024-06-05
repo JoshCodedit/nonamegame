@@ -232,6 +232,12 @@ body {
     margin-top: 0;
   }
 
+  .exit-fullscreen{
+    bottom: 170px;
+    left: 270px;
+
+  }
+
   .card-container {
     bottom: 35px;
   }
@@ -245,7 +251,13 @@ body {
 @media (max-width: 361px) {
   .background {
     height: 800px;
+    max-width: 360px;
     margin-top: 0;
+  }
+
+  .exit-fullscreen{
+    left: 240px;
+    bottom: 130px;
   }
   .card-container {
     bottom: 10px;
